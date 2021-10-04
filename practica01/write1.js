@@ -1,5 +1,5 @@
 const fs = require('fs');
-fs.writeFile('escritura.txt', 'contenido del nuevo fichero', 'utf8',
+fs.writeFile('./textos/escritura.txt', 'contenido del nuevo fichero', 'utf8',
  function (err) {
      console.log("funcion callback, he terminado de leer el fichero, pasao ahora a ejecutar esta funcion");
  if (err) {
