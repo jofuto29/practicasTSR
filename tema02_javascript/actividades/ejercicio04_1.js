@@ -1,20 +1,30 @@
 const http = require('http')
 const url = require('url')
-const qs = require('querystring')
-const { getDefaultSettings } = require('http2')
+const path = require('path')
+const fs = require('fs')
 
 http.createServer( function(request,response) {
-    let query = url.parse(request.url).query
-    let info = qs.parse(query).info
-    let x = 'time'
-    let y = 'dir'
+    let query = url.parse(request.url).query //pathURL = path.basename(request.url)
     let date = new Date()
-    response.writeHead(200, {'Content-Type':'text/plain'})
-    switch( info ) {
-        case 'x': response.end("time : " + date); break;
-        case 'y': response.end('URL ' + query); break;
+
+    console.log(query)
+    switch( query ) {
+        case 'time': response.end("time : " + date); break;
+        case 'dir': response.end('URL ' + path.join(__dirname, request.url)  //path.join para listar la ruta completa del directorio en el que se encuentra este archivo
+                                + fs.readdirSync("./")); //readdirSync para listar todos los archivos que se encuentren en el directorio que le pasamos
+        break;
         default:
+            if(console.log(query == null)){
+                response.writeHead(200)
+                fs.readFile(query, function(err,data){
+                    if(err) throw err
+                    response.end(data)
+                })
+            }else{
+                response.writeHead(404)
+                response.write('not found')
+            }
     }
-}).listen(1337, "127.0.0.1")
-console.log('Server running at http://127.0.0.1:1337/')
+}).listen(3000, "127.0.0.1")
+console.log('Server running at http://127.0.0.1:3000')
 
