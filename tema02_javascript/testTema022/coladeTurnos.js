@@ -6,4 +6,7 @@
 3. Los nuevos eventos no pueden procesarse, como mínimo, hasta que finalice el evento actualmente gestionado
 4. Un fichero Node.js que implante un módulo puede exportar Los elementos (es decir, métodos, propiedades...) que se hayan declarado como pertenecientes al objeto global "exports".
 5. La gestión de módulos tradicional de Node.js No cumple con el estándar ECMAScript 6 por lo que respecta a la gestión de módulos
+6. La gestión de la cola de turnos en JavaScript asegura que: la actividad JavaScript actualmente en ejecución en ese proceso no sea interrumpida por ninguno de los eventos recibidos o a
+ctividades creadas.
+
 */

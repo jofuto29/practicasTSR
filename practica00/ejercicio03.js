@@ -3,7 +3,10 @@
 //algunas funciones retornan null para indicar que no han encontrado ningun objeto apropiado
 
 var objeto = 
-console.log("este objeto es null, no tiene nada: " + objeto)
+console.log("este objeto es undefined, no tiene nada: " + objeto)
+//para que sea null lo tenemos que especificar:
+var objeto = null; //es null porque asi lo hemos querido
+console.log("este objeto es undefined, no tiene nada: " + objeto)
 
 //number
 //este tipo corresponde tanto a lo numeros reales como enteros

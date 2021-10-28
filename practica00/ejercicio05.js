@@ -41,7 +41,7 @@ console.log(NaN === NaN)
 //teniendo en cuenta que si es 0 o una cadena vacia 
 //decimos que ha sido definida
 
-if(person || person===0 || person==="")
+if(person===0 || person==="")
     console.log("person exist")
 
 if(person!= null && person != undefined)

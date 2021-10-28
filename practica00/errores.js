@@ -15,6 +15,7 @@ function sum2(A){
     else {return A.reduce((x,y)=>x+y)}
 }
 
+console.log(typeof A)
 /*
 utilizaremos:
     instanceof --> para objetos... array es un objeto
