@@ -1,10 +1,15 @@
 const zmq = require('zeromq')
 let req = zmq.socket('req')
-req.identity='Worker1'+process.pid
-req.connect('tcp://localhost:9999')
+
+let UrlBackend = process.argv[2]
+let nick = process.argv[3]
+let resply = process.argv[4]
+
+req.identity= nick + process.pid
+req.connect(UrlBackend)
+
 req.on('message', (c,sep,msg)=> {
-setTimeout(()=> {
-req.send([c,'','resp'])
-}, 1000)
+    console.log("msj" + msg);
+    setTimeout(()=> { req.send([c,'', resply])}, 1000)
 })
 req.send(['','',''])
