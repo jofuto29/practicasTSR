@@ -20,4 +20,4 @@ req.on('message', function(c,sep,msg) { //worker recibe un mensaje
     setTimeout(()=> { req.send([c,'', resply])}, 1000)
 })
 
-req.send([' ',' ',' ',]);
+req.send(['','','',]);
